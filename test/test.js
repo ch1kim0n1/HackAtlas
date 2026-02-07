@@ -9,6 +9,10 @@ const { listThemes } = require('../lib/themes');
 const fs = require('fs');
 const path = require('path');
 
+// Setup temp directory for tests
+const tmpBase = path.join(require('os').tmpdir(), `atlas-test-${Date.now()}`);
+console.log(`Using temp dir: ${tmpBase}`);
+
 console.log('🧪 Testing MindCore · Atlas\n');
 
 let testsPassed = 0;
@@ -38,7 +42,7 @@ test('Generate design system', () => {
   const result = generateDesignSystem({
     theme: 'cyberpunk',
     seed: 'test',
-    output: '/tmp/atlas-test',
+    output: path.join(tmpBase, 'atlas-test'),
     format: ['css', 'json'],
   });
   
@@ -53,14 +57,14 @@ test('Deterministic generation', () => {
   const result1 = generateDesignSystem({
     theme: 'minimal',
     seed: 'deterministic-test',
-    output: '/tmp/atlas-test-1',
+    output: path.join(tmpBase, 'atlas-test-1'),
     format: ['json'],
   });
   
   const result2 = generateDesignSystem({
     theme: 'minimal',
     seed: 'deterministic-test',
-    output: '/tmp/atlas-test-2',
+    output: path.join(tmpBase, 'atlas-test-2'),
     format: ['json'],
   });
   
@@ -80,7 +84,7 @@ test('Deterministic generation', () => {
 
 // Test 4: File generation
 test('Generate output files', () => {
-  const testDir = '/tmp/atlas-test-output';
+  const testDir = path.join(tmpBase, 'atlas-test-output');
   const result = generateDesignSystem({
     theme: 'nature',
     seed: 'file-test',
@@ -100,7 +104,7 @@ test('Generate component tokens', () => {
   const result = generateDesignSystem({
     theme: 'darkmode',
     seed: 'component-test',
-    output: '/tmp/atlas-test-components',
+    output: path.join(tmpBase, 'atlas-test-components'),
     format: ['css'],
     components: true,
   });
@@ -117,7 +121,7 @@ test('All themes generate successfully', () => {
     const result = generateDesignSystem({
       theme: themeName,
       seed: 'theme-test',
-      output: `/tmp/atlas-test-${themeName}`,
+      output: path.join(tmpBase, `atlas-test-${themeName}`),
       format: ['json'],
     });
     if (!result.designSystem) throw new Error(`Theme ${themeName} failed`);
