@@ -1,0 +1,35 @@
+{
+  "name": "@mindcore/atlas",
+  "version": "1.0.0",
+  "description": "MindCore · Atlas: A CLI-first, local-only, deterministic design accelerator for hackathons",
+  "main": "index.js",
+  "bin": {
+    "atlas": "./bin/atlas.js"
+  },
+  "scripts": {
+    "test": "node test/test.js",
+    "start": "node bin/atlas.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ch1kim0n1/HackAtlas.git"
+  },
+  "keywords": [
+    "design-system",
+    "hackathon",
+    "cli",
+    "design-tokens",
+    "ui"
+  ],
+  "author": "MindCore",
+  "license": "MIT",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ch1kim0n1/HackAtlas/issues"
+  },
+  "homepage": "https://github.com/ch1kim0n1/HackAtlas#readme",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^14.0.3"
+  }
+}
