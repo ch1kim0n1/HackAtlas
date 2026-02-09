@@ -11,6 +11,7 @@ Atlas eliminates design indecision, survives pivots, and enforces visual consist
 ## Why Atlas Exists
 
 Hackathon teams lose points because:
+
 - Design decisions happen too late
 - Pivots destroy visual consistency
 - UI looks stitched together
@@ -30,7 +31,7 @@ Atlas removes design as a bottleneck by **locking visual identity early** and en
 - **Fast execution**
 - **Pivot-safe design**
 
-Atlas is strict by design.
+Atlas is strict by design..
 
 ---
 
@@ -54,12 +55,14 @@ Atlas is strict by design.
 ## Supported Use Case
 
 **When to use Atlas:**
+
 - Early build phase
 - Immediately after or alongside project setup
 - Before UI implementation explodes
 - During pivots to preserve coherence
 
 **When not to use Atlas:**
+
 - For custom branding work
 - For artistic exploration
 - For pixel-perfect mockups
@@ -71,11 +74,14 @@ Atlas is strict by design.
 Atlas operates via CLI prompts or flags.
 
 ### Required Inputs
+
 - Product intent (storytelling angle)
 - Tone keywords
 - Target platform (web-first)
 - Styling system choice
 
 Example:
+
 ```bash
 atlas init
+```
